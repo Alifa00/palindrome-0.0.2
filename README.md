@@ -1,44 +1,44 @@
 ```
-#include<iostream>
+#include <iostream>
+
 using namespace std;
-int main() 
+
+int main()
 {
-    string pol;
-    int result=1;
-    getline(cin,pol);
-    
-    for(int i=0;i<pol.length()/2;i++)
- {
-     if(!((96<(int)pol[i])&&((int)pol[i]<123)))
-   {
-       if(!((47<(int)pol[i])&&((int)pol[i]<58)))
-     {
-        if(!((64<(int)pol[i])&&((int)pol[i]<91)))
-       {
-       pol.erase(i,1);i--;continue;
-       }}}
-     if(!((96<(int)pol[pol.length()-i-1])&&((int)pol[pol.length()-i-1]<123)))
- {
-     if(!((47<(int)pol[pol.length()-i-1])&&((int)pol[pol.length()-i-1]<58)))
-   {
-      if(!((64<(int)pol[pol.length()-i-1])&&((int)pol[pol.length()-i-1]<91)))
-       {
-       pol.erase(pol.length()-i-1,1);i--;continue;
-       }}}
-      
-       if((int)pol[i]>64)
- {
-        if (((int)pol[i]!=(int)pol[pol.length()-i-1])&&((int)pol[i]!=(int)pol[pol.length()-i-1]-32)&&((int)pol[i]!=(int)pol[pol.length()-i-1]+32))
-   {
-      result=0;
-         }}
-        else if (pol[i]!=pol[pol.length()-i-1])
-         {
-        	result=0;
-         }
-          
-   }
-    cout<< result;
-    return 0;
+    int i, j;
+ string a , b , c;
+	getline(cin , a);
+	j = a.length();
+    for (i = j - 1; i >= 0; --i)
+    {
+    if ((a[i]) > 64)
+        {
+        if ((a[i]) < 91)
+            {
+            b += a[i];
+            }}
+		if ((a[i]) > 96)
+        {
+        if ((a[i]) < 123)
+            {
+            b += a[i] - 32;
+            }}
+		if ((a[i])> 47 )
+        {
+        if ((a[i])< 58 )
+            {
+            b += a[i];
+            }}}
+   j = b.length();
+    for (i = j - 1; i >= 0; i--)
+    {c += b[i];
+    }
+    if (c == b)
+    {cout << '1';
+    }
+	else
+    {cout << '0';
+    }
+	return 0;
 }
 ```
